@@ -1,0 +1,15 @@
+api:
+    build: .
+    container_name: node_api
+    ports:
+      - "4000:3000"
+    environment:
+      - DB_HOST=db
+      - DB_PORT=5432
+      - DB_NAME=sena_db
+      - DB_USER=postgres
+      - DB_PASSWORD=secret
+      - PORT=3000
+    depends_on:
+      db:
+        condition: service_healthy
